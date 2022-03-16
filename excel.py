@@ -1,7 +1,7 @@
 from ast import Return
 from typing import List
 import xlwings as xw
-import win32
+import win32api as win32
 
 #替换三维列表中的空list项,将三维列表转换为二维（输入三维列表中的第三维直接删除）
 def noneListToNA(data3darray):
@@ -27,4 +27,8 @@ def outPutData(xlsx_path,sheet_name,begin_cell,data_2d_array):
 
 #读取excel表格中所出现的PDF和png文件路径，然后进行插入操作
 def inputAttachment(xlsx_path,sheetname,lanenum):
-    xlsx=win32.gencache.EnsureDis
+    xlsx=win32.gencache.EnsureDispatch('Excel.Application')
+    wb=xlsx.Workbooks.Open(xlsx_path)
+    ws=wb.Workbooks(sheetname)
+    obj=ws.OLEObjects()
+    x
