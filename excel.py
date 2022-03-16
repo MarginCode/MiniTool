@@ -24,3 +24,5 @@ def outPutData(xlsx_path,sheet_name,begin_cell,data_2d_array):
         wb.save()
         wb.close()
         app.quit()
+
+#读取excel表格中所出现的PDF和png文件路径，然后进行插入操作
